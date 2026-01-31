@@ -1,0 +1,7 @@
+project_id = "sgeanexvxxkiorzoedpe"
+
+[functions.create-demo-accounts]
+verify_jwt = false
+
+[functions.create-doctor]
+verify_jwt = false

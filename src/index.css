@@ -1,0 +1,272 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap');
+
+@layer base {
+  :root {
+    /* Healthcare teal/cyan color palette */
+    --background: 200 20% 98%;
+    --foreground: 210 40% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 210 40% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 40% 12%;
+
+    /* Primary: Healthcare Teal */
+    --primary: 174 72% 40%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary: Light teal */
+    --secondary: 174 45% 94%;
+    --secondary-foreground: 174 72% 28%;
+
+    /* Muted */
+    --muted: 200 20% 94%;
+    --muted-foreground: 210 15% 45%;
+
+    /* Accent: Soft cyan */
+    --accent: 186 60% 92%;
+    --accent-foreground: 186 70% 30%;
+
+    /* Destructive */
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Success green for medical */
+    --success: 152 60% 42%;
+    --success-foreground: 0 0% 100%;
+
+    /* Warning amber */
+    --warning: 38 92% 50%;
+    --warning-foreground: 38 92% 15%;
+
+    --border: 200 25% 88%;
+    --input: 200 25% 88%;
+    --ring: 174 72% 40%;
+
+    --radius: 0.75rem;
+
+    /* Sidebar */
+    --sidebar-background: 174 72% 22%;
+    --sidebar-foreground: 174 15% 95%;
+    --sidebar-primary: 0 0% 100%;
+    --sidebar-primary-foreground: 174 72% 22%;
+    --sidebar-accent: 174 50% 30%;
+    --sidebar-accent-foreground: 174 15% 95%;
+    --sidebar-border: 174 40% 30%;
+    --sidebar-ring: 174 72% 50%;
+
+    /* Custom gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(174 72% 40%) 0%, hsl(186 70% 45%) 100%);
+    --gradient-sidebar: linear-gradient(180deg, hsl(174 72% 25%) 0%, hsl(174 72% 18%) 100%);
+    --gradient-card-hover: linear-gradient(135deg, hsl(174 45% 97%) 0%, hsl(186 40% 96%) 100%);
+    
+    /* Custom shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(200 25% 70% / 0.1);
+    --shadow-md: 0 4px 6px -1px hsl(200 25% 70% / 0.15), 0 2px 4px -2px hsl(200 25% 70% / 0.1);
+    --shadow-lg: 0 10px 15px -3px hsl(200 25% 70% / 0.15), 0 4px 6px -4px hsl(200 25% 70% / 0.1);
+    --shadow-card: 0 1px 3px 0 hsl(200 25% 70% / 0.1), 0 1px 2px -1px hsl(200 25% 70% / 0.1);
+    --shadow-card-hover: 0 10px 25px -5px hsl(174 72% 40% / 0.15), 0 8px 10px -6px hsl(174 72% 40% / 0.1);
+  }
+
+  .dark {
+    --background: 210 40% 8%;
+    --foreground: 200 20% 95%;
+
+    --card: 210 35% 12%;
+    --card-foreground: 200 20% 95%;
+
+    --popover: 210 35% 12%;
+    --popover-foreground: 200 20% 95%;
+
+    --primary: 174 72% 50%;
+    --primary-foreground: 210 40% 8%;
+
+    --secondary: 174 30% 18%;
+    --secondary-foreground: 174 60% 70%;
+
+    --muted: 210 30% 18%;
+    --muted-foreground: 200 15% 60%;
+
+    --accent: 186 40% 18%;
+    --accent-foreground: 186 60% 70%;
+
+    --destructive: 0 62% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 152 50% 40%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 80% 45%;
+    --warning-foreground: 38 92% 95%;
+
+    --border: 210 30% 22%;
+    --input: 210 30% 22%;
+    --ring: 174 72% 50%;
+
+    --sidebar-background: 210 40% 6%;
+    --sidebar-foreground: 200 15% 85%;
+    --sidebar-primary: 174 72% 50%;
+    --sidebar-primary-foreground: 210 40% 6%;
+    --sidebar-accent: 210 30% 15%;
+    --sidebar-accent-foreground: 200 15% 85%;
+    --sidebar-border: 210 30% 18%;
+    --sidebar-ring: 174 72% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  }
+}
+
+@layer components {
+  /* Healthcare card styles */
+  .healthcare-card {
+    @apply bg-card rounded-xl border border-border p-6;
+    box-shadow: var(--shadow-card);
+    transition: all 0.2s ease;
+  }
+  
+  .healthcare-card:hover {
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  /* Stats card */
+  .stats-card {
+    @apply bg-card rounded-xl border border-border p-6 relative overflow-hidden;
+    box-shadow: var(--shadow-card);
+  }
+
+  .stats-card::before {
+    content: '';
+    @apply absolute top-0 left-0 w-1 h-full;
+    background: var(--gradient-primary);
+  }
+
+  /* Sidebar active item */
+  .sidebar-item-active {
+    @apply bg-sidebar-accent text-sidebar-accent-foreground;
+  }
+
+  /* QR Code container */
+  .qr-container {
+    @apply bg-white p-6 rounded-2xl inline-block;
+    box-shadow: var(--shadow-lg);
+  }
+
+  /* Medical badge */
+  .medical-badge {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium;
+  }
+
+  .medical-badge-success {
+    @apply bg-success/10 text-success;
+  }
+
+  .medical-badge-warning {
+    @apply bg-warning/10 text-warning;
+  }
+
+  .medical-badge-primary {
+    @apply bg-primary/10 text-primary;
+  }
+
+  /* Table styles */
+  .healthcare-table {
+    @apply w-full border-collapse;
+  }
+
+  .healthcare-table th {
+    @apply text-left text-xs font-semibold text-muted-foreground uppercase tracking-wider px-4 py-3 bg-muted/50;
+  }
+
+  .healthcare-table td {
+    @apply px-4 py-4 border-b border-border;
+  }
+
+  .healthcare-table tr:hover td {
+    @apply bg-accent/30;
+  }
+
+  /* Form input focus ring */
+  .input-healthcare {
+    @apply transition-all duration-200;
+  }
+
+  .input-healthcare:focus {
+    @apply ring-2 ring-primary/30 border-primary;
+  }
+}
+
+@layer utilities {
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-sidebar {
+    background: var(--gradient-sidebar);
+  }
+
+  .shadow-healthcare {
+    box-shadow: var(--shadow-md);
+  }
+
+  .shadow-healthcare-lg {
+    box-shadow: var(--shadow-lg);
+  }
+
+  /* Animation utilities */
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.4s ease-out;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.2s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideUp {
+    from { 
+      opacity: 0; 
+      transform: translateY(10px); 
+    }
+    to { 
+      opacity: 1; 
+      transform: translateY(0); 
+    }
+  }
+
+  @keyframes scaleIn {
+    from { 
+      opacity: 0; 
+      transform: scale(0.95); 
+    }
+    to { 
+      opacity: 1; 
+      transform: scale(1); 
+    }
+  }
+}

@@ -1,0 +1,98 @@
+[
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "workerId",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "recordHash",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "version",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "updatedBy",
+				"type": "string"
+			}
+		],
+		"name": "storeRecord",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "workerId",
+				"type": "string"
+			}
+		],
+		"name": "getRecord",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"name": "records",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "recordHash",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "timestamp",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "version",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "updatedBy",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+]
